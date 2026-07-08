@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MPA Prayer House Admin</title>
+  <link rel="icon" href="/images/logo-stamp.jpeg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="admin-body">
+  <div class="admin-shell">
+    <aside class="admin-sidebar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">MPA</span>
+        <span class="brand-text">
+          <strong>Prayer House</strong>
+          <small>Serverless Admin</small>
+        </span>
+      </a>
+
+      <p class="eyebrow">Browser only</p>
+      <h2>Update images, news, notices, and more.</h2>
+      <p class="admin-lead">
+        Everything here saves in this browser using local storage. Export the JSON anytime if you
+        want a portable backup.
+      </p>
+
+      <div class="admin-sidebar-actions">
+        <a class="button button-secondary" href="index.html">Open Website</a>
+        <button class="button button-primary" type="button" id="saveAllButton">Save Changes</button>
+      </div>
+
+      <div class="admin-status" id="adminStatus">Ready to edit.</div>
+    </aside>
+
+    <main class="admin-main">
+      <section class="admin-card">
+        <div class="admin-card-head">
+          <div>
+            <p class="panel-label">Hero</p>
+            <h2>Site basics</h2>
+          </div>
+        </div>
+        <div class="admin-grid two-column">
+          <label>
+            Brand Mark
+            <input type="text" id="brandMarkInput">
+          </label>
+          <label>
+            Brand Name
+            <input type="text" id="brandNameInput">
+          </label>
+          <label class="full-width">
+            Tagline
+            <input type="text" id="brandTaglineInput">
+          </label>
+          <label class="full-width">
+            Hero Eyebrow
+            <input type="text" id="heroEyebrowInput">
+          </label>
+          <label class="full-width">
+            Hero Title
+            <textarea id="heroTitleInput" rows="3"></textarea>
+          </label>
+          <label class="full-width">
+            Hero Description
+            <textarea id="heroTextInput" rows="4"></textarea>
+          </label>
+          <label>
+            Primary Button Label
+            <input type="text" id="heroPrimaryLabelInput">
+          </label>
+          <label>
+            Primary Button Link
+            <input type="text" id="heroPrimaryHrefInput">
+          </label>
+          <label>
+            Secondary Button Label
+            <input type="text" id="heroSecondaryLabelInput">
+          </label>
+          <label>
+            Secondary Button Link
+            <input type="text" id="heroSecondaryHrefInput">
+          </label>
+        </div>
+      </section>
+
+      <section class="admin-card">
+        <div class="admin-card-head">
+          <div>
+            <p class="panel-label">Updates</p>
+            <h2>News and notices</h2>
+          </div>
+          <div class="admin-inline-actions">
+            <button class="button button-secondary" type="button" data-add-list="news">Add News</button>
+            <button class="button button-secondary" type="button" data-add-list="notices">Add Notice</button>
+          </div>
+        </div>
+        <p class="admin-section-title">News</p>
+        <div class="admin-list" id="newsEditor"></div>
+        <p class="admin-section-title">Notices</p>
+        <div class="admin-list" id="noticesEditor"></div>
+      </section>
+
+      <section class="admin-card">
+        <div class="admin-card-head">
+          <div>
+            <p class="panel-label">Gallery</p>
+            <h2>Image manager</h2>
+          </div>
+          <div class="admin-inline-actions">
+            <button class="button button-secondary" type="button" data-add-list="gallery">Add Image</button>
+          </div>
+        </div>
+        <div class="admin-list" id="galleryEditor"></div>
+      </section>
+
+      <section class="admin-card">
+        <div class="admin-card-head">
+          <div>
+            <p class="panel-label">Programs</p>
+            <h2>Events, ministries, and service times</h2>
+          </div>
+          <div class="admin-inline-actions">
+            <button class="button button-secondary" type="button" data-add-list="events">Add Event</button>
+            <button class="button button-secondary" type="button" data-add-list="ministries">Add Ministry</button>
+            <button class="button button-secondary" type="button" data-add-list="services">Add Service</button>
+          </div>
+        </div>
+        <p class="admin-section-title">Events</p>
+        <div class="admin-list" id="eventsEditor"></div>
+        <p class="admin-section-title">Ministries</p>
+        <div class="admin-list" id="ministriesEditor"></div>
+        <p class="admin-section-title">Service Times</p>
+        <div class="admin-list" id="servicesEditor"></div>
+      </section>
+
+      <section class="admin-card">
+        <div class="admin-card-head">
+          <div>
+            <p class="panel-label">Contact</p>
+            <h2>Footer details</h2>
+          </div>
+        </div>
+        <div class="admin-grid two-column">
+          <label class="full-width">
+            Footer Title
+            <textarea id="footerTitleInput" rows="3"></textarea>
+          </label>
+          <label>
+            Email
+            <input type="text" id="contactEmailInput">
+          </label>
+          <label>
+            Phone
+            <input type="text" id="contactPhoneInput">
+          </label>
+          <label class="full-width">
+            Address
+            <input type="text" id="contactAddressInput">
+          </label>
+          <label>
+            Office Line 1
+            <input type="text" id="officeOneInput">
+          </label>
+          <label>
+            Office Line 2
+            <input type="text" id="officeTwoInput">
+          </label>
+          <label class="full-width">
+            Office Line 3
+            <input type="text" id="officeThreeInput">
+          </label>
+        </div>
+      </section>
+
+      <section class="admin-card">
+        <div class="admin-card-head">
+          <div>
+            <p class="panel-label">Backup</p>
+            <h2>Export, import, or reset</h2>
+          </div>
+        </div>
+        <div class="admin-inline-actions">
+          <button class="button button-secondary" type="button" id="exportButton">Export JSON</button>
+          <label class="button button-secondary admin-file-button">
+            Import JSON
+            <input type="file" id="importFileInput" accept="application/json">
+          </label>
+          <button class="button button-primary" type="button" id="resetButton">Reset Default</button>
+        </div>
+        <textarea id="backupOutput" rows="12" readonly></textarea>
+      </section>
+    </main>
+  </div>
+
+  <script src="content.js"></script>
+  <script src="admin.js"></script>
+</body>
+
+</html>
