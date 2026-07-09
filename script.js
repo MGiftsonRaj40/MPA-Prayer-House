@@ -378,6 +378,18 @@ function renderSite() {
   setupReveal();
 }
 
+const loader = document.getElementById("loader");
+const model = document.getElementById("scroll-bible-model");
+
+model.addEventListener("load", () => {
+    loader.style.opacity = "0";
+    loader.style.pointerEvents = "none";
+
+    setTimeout(() => {
+        loader.remove();
+    }, 800);
+});
+
 setupMenu();
 setupScrollModel();
 renderSite();
