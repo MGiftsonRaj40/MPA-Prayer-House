@@ -381,14 +381,29 @@ function renderSite() {
 const loader = document.getElementById("loader");
 const model = document.getElementById("scroll-bible-model");
 
-model.addEventListener("load", () => {
-    loader.style.opacity = "0";
-    loader.style.pointerEvents = "none";
+if (model) {
+  model.addEventListener("load", () => {
+    if (!loader) return;
 
-    setTimeout(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (reduceMotion.matches) {
+      loader.remove();
+      return;
+    }
+
+    // trigger CSS transition
+    loader.classList.add("loader-hidden");
+
+    const onTransitionEnd = (e) => {
+      if (e.propertyName === "opacity") {
         loader.remove();
-    }, 800);
-});
+        loader.removeEventListener("transitionend", onTransitionEnd);
+      }
+    };
+
+    loader.addEventListener("transitionend", onTransitionEnd);
+  });
+}
 
 setupMenu();
 setupScrollModel();
