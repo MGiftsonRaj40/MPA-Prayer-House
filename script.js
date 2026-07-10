@@ -59,9 +59,9 @@ function setupScrollModel() {
   const rotateModel = () => {
     const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollProgress = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
-    const rotation = 35 + scrollProgress * 720;
+    const rotation = 35 + scrollProgress * 320;
 
-    model.setAttribute("camera-orbit", `${rotation}deg 72deg 9m`);
+    model.setAttribute("camera-orbit", `${rotation}deg 75deg 9m`);
     ticking = false;
   };
 
